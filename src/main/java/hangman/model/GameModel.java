@@ -43,8 +43,8 @@ public class GameModel {
         randomWordCharArray = randomWord.toCharArray();
         incorrectCount = 0;
         correctCount = 0;
-        gameScore = gameScore.getPuntajeInicial();
-	inyectado = gameScore;
+        this.gameScore = gameScore.getPuntajeInicial();
+	this.inyectado = gameScore;
         
     }
     
