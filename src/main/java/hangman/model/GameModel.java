@@ -25,23 +25,25 @@ public class GameModel {
     private int gameScore;
     private int[] lettersUsed;
     
-    
     private HangmanDictionary dictionary;
     
     private Scanner scan;
     private String randomWord;
     private char[] randomWordCharArray;
+
+    private GameScore inyectado;
     
     
    
-    public GameModel(HangmanDictionary dictionary){
+    public GameModel(HangmanDictionary dictionary, GameScore gameScore){
         //this.dictionary = new EnglishDictionaryDataSource();
         this.dictionary=dictionary;
         randomWord = selectRandomWord();
         randomWordCharArray = randomWord.toCharArray();
         incorrectCount = 0;
         correctCount = 0;
-        gameScore = 100;
+        gameScore = gameScore.getPuntajeInicial();
+	inyectado = gameScore;
         
     }
     
@@ -52,7 +54,7 @@ public class GameModel {
         randomWordCharArray = randomWord.toCharArray();
         incorrectCount = 0;
         correctCount = 0;
-        gameScore = 100;
+        gameScore = inyectado.getPuntajeInicial();
     }
 
     //setDateTime
@@ -98,7 +100,7 @@ public class GameModel {
     //getScore
     //purpose: returns current score value
     public int getScore() {
-        return gameScore;
+        return inyectado.calculateScore(correctCount, incorrectCount);
     }
 
     //name: selectRandomWord()
@@ -124,7 +126,7 @@ public class GameModel {
     //method: getGameScore
     //purpose: return current score
     public int getGameScore() {
-        return gameScore;
+        return inyectado.calculateScore(correctCount, incorrectCount);
     }
 
     //method: setGameScore
