@@ -43,6 +43,8 @@ public class GUI {
     private GameOverController gameoverController;
     private HighScoreController highScoreController;
 
+   private GameScore gameScore;
+
     // Use Factory method
     public GUI(HangmanFactoryMethod factoryMethod) {
         this.language = factoryMethod.createLanguage();
@@ -56,6 +58,7 @@ public class GUI {
         this.language = language;
         this.dictionary= dictionary;
         this.hangmanPanel = hangmanPanel;
+	this.gameScore = gameScore;
     }
 
     //method: setup

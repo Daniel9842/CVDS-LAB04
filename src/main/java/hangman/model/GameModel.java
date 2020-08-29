@@ -12,6 +12,7 @@
 ****************************************************************/ 
 package hangman.model;
 
+import hangman.exceptions.HangmanException;
 import hangman.model.dictionary.HangmanDictionary;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -66,7 +67,7 @@ public class GameModel {
     //method: makeGuess
     //purpose: check if user guess is in string. Return a
     // list of positions if character is found in string
-    public ArrayList<Integer> makeGuess(String guess){
+    public ArrayList<Integer> makeGuess(String guess) throws HangmanException{
         char guessChar = guess.charAt(0);
         ArrayList<Integer> positions = new ArrayList<>();
         for(int i = 0; i < randomWordCharArray.length; i++){
@@ -76,7 +77,7 @@ public class GameModel {
         }
         if(positions.size() == 0){
             incorrectCount++;
-            gameScore -= 10;
+            gameScore = inyectado.calculateScore(correctCount, incorrectCount);
         } else {
             correctCount += positions.size();
         }
@@ -99,7 +100,7 @@ public class GameModel {
     
     //getScore
     //purpose: returns current score value
-    public int getScore() {
+    public int getScore() throws HangmanException {
         return inyectado.calculateScore(correctCount, incorrectCount);
     }
 
@@ -125,7 +126,7 @@ public class GameModel {
 
     //method: getGameScore
     //purpose: return current score
-    public int getGameScore() {
+    public int getGameScore() throws HangmanException {
         return inyectado.calculateScore(correctCount, incorrectCount);
     }
 

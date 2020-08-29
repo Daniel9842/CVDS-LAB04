@@ -1,9 +1,9 @@
 package hangman.model;
-import hangman.exceptions.*;
+import hangman.exceptions.HangmanException;
 
 public class BonusScore implements GameScore {
 	/**
-	* @throws hangman.exceptions.*
+	* @throws hangman.exceptions.HangmanException
 	* @pre Se inicia con 0 puntos.
 	* @pos Puntaje no es menor a 0.
 	* @param correctCount - Cantidad de letras acertadas.

@@ -1,9 +1,9 @@
 package hangman.model;
-import hangman.exceptions.*;
+import hangman.exceptions.HangmanException;
 
 public class PowerScore implements GameScore {
 	/**
-	* @throws hangman.exceptions.*
+	* @throws hangman.exceptions.HangmanException
 	* @pre Se inicia con 0 puntos.
 	* @pos Puntaje no es mayor a 500.
 	* @param correctCount - Cantidad de letras acertadas.
@@ -14,7 +14,7 @@ public class PowerScore implements GameScore {
 		int scorePower = 0;	
 		if (correctCount > 0) {
 			for (int i = 1; i <= correctCount; i++) {
-				scorePower = Math.pow(5,i)
+				scorePower = Math.pow(5,i);
 			}
 		} else if (incorrectCount > 0) {
 			if (scorePower < 0) {
@@ -22,6 +22,8 @@ public class PowerScore implements GameScore {
 			} else {
 				scorePower = scorePower - (incorrectCount * 8);
 			}
+		} else if (scorePower < 0) {
+			scorePower = 0;
 		} else if (scorePower > 500) {
 			scorePower = 500;
 		} else if(correctCount < 0 || incorrectCount < 0) {
