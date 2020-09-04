@@ -1,7 +1,7 @@
 package hangman.model;
 
 import java.lang.*;
-import hangman.exceptions.HangmanException;
+import hangman.exception.InvalidException;
 
 public class PowerScore implements GameScore {
 	/**
@@ -12,7 +12,7 @@ public class PowerScore implements GameScore {
 	* @param incorrectCount - Cantidad de letras erroneas
 	* @return puntaje bonus power de ahorcados.
 	*/
-	public int calculateScore(int correctCount, int incorrectCount) throws HangmanException {
+	public int calculateScore(int correctCount, int incorrectCount) throws InvalidException {
 		int scorePower = 0;	
 		if (correctCount > 0) {
 			for (int i = 1; i <= correctCount; i++) {
@@ -29,7 +29,7 @@ public class PowerScore implements GameScore {
 		} else if (scorePower >= 500) {
 			scorePower = 500;
 		} else if(correctCount < 0 || incorrectCount < 0) {
-			throw new HangmanException(HangmanException.INVALIDARGUMENT);
+			throw new InvalidException(InvalidException.INVALID);
 		}
 		return scorePower;
 	}
