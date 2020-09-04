@@ -14,13 +14,13 @@ public class BonusScore implements GameScore {
 		int scoreBonus = 0;
 		if (correctCount > 0) {
 			scoreBonus = scoreBonus + (correctCount * 10); 
-		} else if (incorrectCount > 0) {
-			if (scoreBonus < 0) {
-				scoreBonus = 0;
-			} else {
+		} if (incorrectCount > 0) {
+			if (scoreBonus > 0) {
 				scoreBonus = scoreBonus - (incorrectCount * 5);
+			} if (scoreBonus < 0) {
+				scoreBonus = 0;
 			}
-		} else if(correctCount < 0 || incorrectCount < 0) {
+		} if (correctCount < 0 || incorrectCount < 0) {
 			throw new InvalidException(InvalidException.INVALID);
 		}
 		return scoreBonus;

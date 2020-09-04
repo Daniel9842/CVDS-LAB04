@@ -15,20 +15,18 @@ public class PowerScore implements GameScore {
 	public int calculateScore(int correctCount, int incorrectCount) throws InvalidException {
 		int scorePower = 0;	
 		if (correctCount > 0) {
-			for (int i = 1; i <= correctCount; i++) {
-				scorePower = scorePower + (int)Math.pow(5,i);
-			}
-		} else if (incorrectCount > 0) {
+			scorePower = (int)Math.pow(5,correctCount);
+		} if (incorrectCount > 0) {
 			if (scorePower < 0) {
 				scorePower = 0;
 			} else {
 				scorePower = scorePower - (incorrectCount * 8);
 			}
-		} else if (scorePower <= 0) {
+		} if (scorePower <= 0) {
 			scorePower = 0;
-		} else if (scorePower >= 500) {
+		} if (scorePower >= 500) {
 			scorePower = 500;
-		} else if(correctCount < 0 || incorrectCount < 0) {
+		} if(correctCount < 0 || incorrectCount < 0) {
 			throw new InvalidException(InvalidException.INVALID);
 		}
 		return scorePower;
