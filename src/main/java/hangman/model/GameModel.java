@@ -6,19 +6,18 @@
 *
 * assignment: Swing Project v1.0
 * date last modified: 10/11/2016
-*
+* 
 * purpose: This is the model component for the game screen
 *
 ****************************************************************/ 
 package hangman.model;
 
-import hangman.exceptions.HangmanException;
 import hangman.model.dictionary.HangmanDictionary;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
-
-
+import hangman.exception.InvalidException;
+ 
 public class GameModel {
     private int incorrectCount;
     private int correctCount;
@@ -43,7 +42,7 @@ public class GameModel {
         randomWordCharArray = randomWord.toCharArray();
         incorrectCount = 0;
         correctCount = 0;
-        this.gameScore = gameScore.getPuntajeInicial();
+        this.gameScore = gameScore.getSocreInitial();
 	this.inyectado = gameScore;
         
     }
@@ -55,7 +54,7 @@ public class GameModel {
         randomWordCharArray = randomWord.toCharArray();
         incorrectCount = 0;
         correctCount = 0;
-        gameScore = inyectado.getPuntajeInicial();
+        gameScore = inyectado.getSocreInitial();
     }
 
     //setDateTime
@@ -67,7 +66,7 @@ public class GameModel {
     //method: makeGuess
     //purpose: check if user guess is in string. Return a
     // list of positions if character is found in string
-    public ArrayList<Integer> makeGuess(String guess) throws HangmanException{
+    public ArrayList<Integer> makeGuess(String guess) throws InvalidException{
         char guessChar = guess.charAt(0);
         ArrayList<Integer> positions = new ArrayList<>();
         for(int i = 0; i < randomWordCharArray.length; i++){
@@ -100,7 +99,7 @@ public class GameModel {
     
     //getScore
     //purpose: returns current score value
-    public int getScore() throws HangmanException {
+    public int getScore() throws InvalidException {
         return inyectado.calculateScore(correctCount, incorrectCount);
     }
 
@@ -126,7 +125,7 @@ public class GameModel {
 
     //method: getGameScore
     //purpose: return current score
-    public int getGameScore() throws HangmanException {
+    public int getGameScore() throws InvalidException {
         return inyectado.calculateScore(correctCount, incorrectCount);
     }
 

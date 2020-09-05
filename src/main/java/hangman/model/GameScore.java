@@ -1,18 +1,17 @@
 package hangman.model;
-import hangman.exceptions.*;
+import hangman.exception.*;
 
 /**
-*
-* @throws HangmanException
-* @param correctCount
-* @param incorrectCount
-* @return
+* @throws hangman.exception.InvalidException.
+* @param correctCount - Cantidad de letras acertadas.
+* @param incorrectCount - Cantidad de letras erroneas.
+* @return puntaje de ahorcados.
 */
-
+ 
 public interface GameScore {
-	public int calculateScore(int correctCount,int incorrectCount)throws HangmanException;
+	public int calculateScore(int correctCount,int incorrectCount) throws InvalidException;
 	
-	public default int getPuntajeInicial() {
+	public default int getSocreInitial() {
 		return 0;
 	}
 	

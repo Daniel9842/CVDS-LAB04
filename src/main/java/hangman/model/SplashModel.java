@@ -13,7 +13,7 @@
 package hangman.model;
 
 import java.awt.Color;
-
+ 
 /**
  *
  * @author Omar
