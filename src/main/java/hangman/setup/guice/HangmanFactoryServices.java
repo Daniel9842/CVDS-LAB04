@@ -17,12 +17,18 @@ import hangman.model.dictionary.FrenchDictionaryDataSource;
 import hangman.view.HangmanNoviolentoPanel;
 import hangman.view.HangmanPanel;
 
+import hangman.model.*;
+import hangman.view.HangmanStickmanPanel;
+
 public class HangmanFactoryServices extends com.google.inject.AbstractModule {
 
     @Override
     protected void configure() {
         /* Guice dependency injection */
-        // bind(Interface.class).to(Concrete.class);
+        bind(Language.class).to(French.class);
+        bind(HangmanDictionary.class).to(FrenchDictionaryDataSource.class);
+        bind(HangmanPanel.class).to(HangmanStickmanPanel.class);
+        bind(GameScore.class).to(OriginalScore.class);
     }
 
 }
