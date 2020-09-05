@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import hangman.exception.InvalidException;
-
+ 
 public class GameModel {
     private int incorrectCount;
     private int correctCount;
