@@ -1,6 +1,6 @@
 package hangman.model;
 import hangman.exception.InvalidException;
-
+ 
 public class BonusScore implements GameScore {
 	/**
 	* @throws hangman.exception.InvalidException

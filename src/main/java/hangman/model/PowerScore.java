@@ -1,5 +1,5 @@
 package hangman.model;
-
+ 
 import java.lang.*;
 import hangman.exception.InvalidException;
 

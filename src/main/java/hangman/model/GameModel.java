@@ -6,7 +6,7 @@
 *
 * assignment: Swing Project v1.0
 * date last modified: 10/11/2016
-*
+* 
 * purpose: This is the model component for the game screen
 *
 ****************************************************************/ 

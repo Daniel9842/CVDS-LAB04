@@ -7,7 +7,7 @@ import hangman.exception.*;
 * @param incorrectCount - Cantidad de letras erroneas.
 * @return puntaje de ahorcados.
 */
-
+ 
 public interface GameScore {
 	public int calculateScore(int correctCount,int incorrectCount) throws InvalidException;
 	
